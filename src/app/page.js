@@ -15,7 +15,44 @@ export default function Home() {
     });
   }, []);
 
+  const handleGenerateLead = (e) => {
+    e.preventDefault();
+    dataLayer.push({
+      event: "generate_lead",
+      user_data: {
+        email: "aluno@metricasboss.com.br",
+        firstName: "Aluno",
+        lastName: "Metricas Boss",
+        phone: "+5521989321234",
+      },
+      items: [
+        {
+          item_id: "SKU_12345",
+          item_name: "Stan and Friends Tee",
+          affiliation: "Google Merchandise Store",
+          coupon: "SUMMER_FUN",
+          discount: 2.22,
+          index: 0,
+          item_brand: "Google",
+          item_category: "Apparel",
+          item_category2: "Adult",
+          item_category3: "Shirts",
+          item_category4: "Crew",
+          item_category5: "Short sleeve",
+          item_list_id: "related_products",
+          item_list_name: "Related Products",
+          item_variant: "green",
+          location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+          price: 9.99,
+          quantity: 1,
+        },
+      ],
+    });
+  };
+
   const handlePurchase = (e) => {
+    e.preventDefault();
+
     let dataLayer = window.dataLayer || [];
     dataLayer.push({
       event: "purchase",
@@ -71,7 +108,7 @@ export default function Home() {
         <h2 className="mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white">
           Cadastre-se para ganhar uma esfera do dragão
         </h2>
-        <form id="form" action="#">
+        <form id="form" onSubmit={handleGenerateLead} action="#">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
