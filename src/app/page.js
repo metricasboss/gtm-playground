@@ -50,40 +50,52 @@ export default function Home() {
     });
   };
 
+  const handleEvent = (e) => {
+    let dataLayer = window.dataLayer || [];
+
+    dataLayer.push({
+      event: "add_to_cart",
+      value: 9.9,
+      currency: "BRL",
+    });
+  };
+
   const handlePurchase = (e) => {
     e.preventDefault();
 
     let dataLayer = window.dataLayer || [];
     dataLayer.push({
       event: "purchase",
-      transaction_id: "T_12345_12",
-      value: 25.42,
-      tax: 4.9,
-      shipping: 5.99,
-      currency: "USD",
-      coupon: "SUMMER_SALE",
-      items: [
-        {
-          item_id: "SKU_12345",
-          item_name: "Stan and Friends Tee",
-          affiliation: "Google Merchandise Store",
-          coupon: "SUMMER_FUN",
-          discount: 2.22,
-          index: 0,
-          item_brand: "Google",
-          item_category: "Apparel",
-          item_category2: "Adult",
-          item_category3: "Shirts",
-          item_category4: "Crew",
-          item_category5: "Short sleeve",
-          item_list_id: "related_products",
-          item_list_name: "Related Products",
-          item_variant: "green",
-          location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
-          price: 9.99,
-          quantity: 1,
-        },
-      ],
+      ecommerce: {
+        transaction_id: "T_12345_12",
+        value: 25.42,
+        tax: 4.9,
+        shipping: 5.99,
+        currency: "USD",
+        coupon: "SUMMER_SALE",
+        items: [
+          {
+            item_id: "SKU_12345",
+            item_name: "Stan and Friends Tee",
+            affiliation: "Google Merchandise Store",
+            coupon: "SUMMER_FUN",
+            discount: 2.22,
+            index: 0,
+            item_brand: "Google",
+            item_category: "Apparel",
+            item_category2: "Adult",
+            item_category3: "Shirts",
+            item_category4: "Crew",
+            item_category5: "Short sleeve",
+            item_list_id: "related_products",
+            item_list_name: "Related Products",
+            item_variant: "green",
+            location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+            price: 9.99,
+            quantity: 1,
+          },
+        ],
+      },
     });
   };
 
@@ -92,6 +104,7 @@ export default function Home() {
       <div className="flex flex-col p-20 border-4 border-dotted border-indigo-500 mt-6 ">
         <button
           id="cta"
+          onClick={handleEvent}
           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
         >
           Clique aqui para chamar o Goku!
