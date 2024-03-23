@@ -37,6 +37,10 @@ const PurchaseButton = () => {
           },
         ],
       },
+      user_data: {
+        email: "lucian@metricasboss.com.br",
+        phone: "+5521989541666",
+      },
     });
   };
 
