@@ -20,7 +20,6 @@ export default function Home() {
   }, []);
 
   const handleGenerateLead = (e) => {
-    e.preventDefault();
     dataLayer.push({
       event: "generate_lead",
       user_data: {
