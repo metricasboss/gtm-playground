@@ -72,6 +72,7 @@ export default function Home() {
                 Primeiro nome
               </label>
               <input
+                name="first_name"
                 type="text"
                 id="first_name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -87,6 +88,7 @@ export default function Home() {
                 Segundo nome
               </label>
               <input
+                name="last_name"
                 type="text"
                 id="last_name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -103,6 +105,7 @@ export default function Home() {
               Seu melhor e-mail
             </label>
             <input
+              name="email"
               type="email"
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -113,6 +116,7 @@ export default function Home() {
           <div className="flex items-start mb-6">
             <div className="flex items-center h-5">
               <input
+                name="remember"
                 id="remember"
                 type="checkbox"
                 value=""
