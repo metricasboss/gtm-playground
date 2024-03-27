@@ -35,10 +35,9 @@ export default function RootLayout({ children, searchParams }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-1234567890');`,
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1234567890');`,
           }}
         ></script>
       </head>
