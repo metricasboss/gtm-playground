@@ -16,7 +16,7 @@ export default function RootLayout({ children, searchParams }) {
   return (
     <html lang="en">
       <head>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -25,6 +25,19 @@ export default function RootLayout({ children, searchParams }) {
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                 })(window,document,'script','dataLayer', "${gtmId}");
               `,
+          }}
+        ></script> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1234567890"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1234567890');`,
           }}
         ></script>
       </head>
