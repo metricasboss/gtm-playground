@@ -23,6 +23,7 @@ export default function RootLayout({ children, searchParams }) {
         <script
           src="//tag.goadopt.io/injector.js?website_code=8ce6f54f-4561-40cb-b614-a9482142d037"
           className="adopt-injector"
+          async
         ></script>
         <script
           dangerouslySetInnerHTML={{
