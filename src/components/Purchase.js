@@ -42,6 +42,7 @@ const PurchaseButton = () => {
         phone: "+5521989541666",
       },
     });
+    console.log("Evento de compra disparado com sucesso");
   };
 
   return (

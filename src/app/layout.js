@@ -31,15 +31,6 @@ export default function RootLayout({ children, searchParams }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-1234567890"
         ></script>
-        {/* Representação do on code da shopify*/}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-1234567890');`,
-          }}
-        ></script>
       </head>
       <body className={inter.className}>
         <noscript>
