@@ -3,9 +3,13 @@ import AddToCartButton from "@/components/AddToCart";
 import BeginCheckoutButton from "@/components/BeginCheckout";
 import PurchaseButton from "@/components/Purchase";
 import ViewItemButton from "@/components/ViewItem";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [email, setEmail] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+
   useEffect(() => {
     document.getElementById("cta").addEventListener("click", function () {
       var toasty = document.getElementById("toasty");
@@ -19,7 +23,42 @@ export default function Home() {
     });
   }, []);
 
+  const getAnalyticsData = () => {
+    const cookieName = "_ga_YVXB3EG0W3";
+    let sessionId = null;
+    // Expressão regular para extrair os dados
+    const regex = new RegExp(`${cookieName}=GS(\\d)\\.(\\d)\\.(\\w+)\\.(\\d+)`);
+
+    // Procurar o cookie e aplicar a regex
+    const match = document.cookie.match(regex);
+
+    if (match) {
+      sessionId = match[3];
+    }
+    return {
+      clientId: window.gaGlobal.vid,
+      sessionId,
+    };
+  };
+
   const handleGenerateLead = (e) => {
+    e.preventDefault();
+    const { clientId, sessionId } = getAnalyticsData();
+    console.log(clientId, sessionId);
+    // Cadastrar essas informações na hubspot
+    fetch("/api/lead", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        firstName,
+        lastName,
+        phone: "+5521989321236",
+        clientId,
+        sessionId,
+      }),
+    });
+
+    // Enviar esses dados para a camada de dados
     dataLayer.push({
       event: "generate_lead",
       user_data: {
@@ -78,6 +117,7 @@ export default function Home() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="John"
                 required
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             <div>
@@ -94,6 +134,7 @@ export default function Home() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Doe"
                 required
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
           </div>
@@ -111,6 +152,7 @@ export default function Home() {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="john.doe@company.com"
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex items-start mb-6">
