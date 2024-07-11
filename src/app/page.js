@@ -7,7 +7,7 @@ export default function Home() {
   const [generatedUrl, setGeneratedUrl] = useState("");
 
   const handleGenerateUrl = () => {
-    setGeneratedUrl(`https://tagassistant.google.com/?gtm_ids=${gtmId}`);
+    setGeneratedUrl(`https://tagassistant.google.com/?gtmId=${gtmId}`);
   };
 
   return (
