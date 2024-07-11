@@ -40,7 +40,7 @@ export default function RootLayout({ children, searchParams }) {
         </noscript>
         <div className="flex">
           <Navbar />
-          <main className="p-8 w-full bg-gray-900">
+          <main className="p-8 w-full dark:bg-gray-900 bg-gray-50">
             <div className="max-w-4xl">{children}</div>
           </main>
         </div>

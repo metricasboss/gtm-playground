@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
@@ -12,17 +13,22 @@ export default function Home() {
   return (
     <div className="flex">
       <main className="p-8 w-full">
-        <h1 className="text-4xl font-bold mb-8">Playground Métricas Boss</h1>
-        <p className="my-5 text-xl 4xl:text-lead text-gray-600 dark:text-gray-400">
-          O Playground Métricas Boss é uma ferramenta interativa para testar
-          disparos de tags no Google Tag Manager (GTM). Siga as etapas abaixo
-          para utilizá-lo:
-        </p>
-
+        <div className="flex">
+          <div>
+            <h1 className="text-4xl font-bold mb-8">
+              Playground Métricas Boss
+            </h1>
+            <p className="my-5 text-xl 4xl:text-lead text-gray-600 dark:text-gray-400">
+              O Playground Métricas Boss é uma ferramenta interativa para testar
+              disparos de tags no Google Tag Manager (GTM). Siga as etapas
+              abaixo para utilizá-lo:
+            </p>
+          </div>
+        </div>
         <ol className="list-decimal list-inside text-lg mb-4">
           <li className="mb-2">Insira o ID do GTM no campo abaixo.</li>
           <li className="mb-2">
-            Clique em "Gerar URL" para criar a URL do Tag Assistant.
+            Clique em {`Gerar URL`} para criar a URL do Tag Assistant.
           </li>
           <li className="mb-2">
             Copie a URL gerada e cole-a no Tag Assistant.
@@ -38,7 +44,7 @@ export default function Home() {
         <div className="mb-4">
           <label
             htmlFor="gtm-id"
-            className="block text-lg font-medium text-gray-100 mb-2"
+            className="block text-lg font-medium dark:text-gray-100 mb-2"
           >
             Insira o ID do GTM:
           </label>
