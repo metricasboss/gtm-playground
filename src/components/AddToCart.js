@@ -3,7 +3,7 @@ import React from "react";
 const AddToCartButton = () => {
   const handleAddToCart = () => {
     window.dataLayer = window.dataLayer || [];
-
+    // Diretamente para o Google Analytics
     window.gtag("event", "refund", {
       currency: "USD",
       transaction_id: "T_12345", // Transaction ID. Required for purchases and refunds.

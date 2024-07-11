@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { headers } from "next/headers";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,12 +28,8 @@ export default function RootLayout({ children, searchParams }) {
               `,
           }}
         ></script>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-1234567890"
-        ></script>
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen`}>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
@@ -41,7 +38,12 @@ export default function RootLayout({ children, searchParams }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {children}
+        <div className="flex">
+          <Navbar />
+          <main className="p-8 w-full bg-gray-900">
+            <div className="max-w-4xl">{children}</div>
+          </main>
+        </div>
       </body>
     </html>
   );
