@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 const products = [
   {
@@ -16,7 +15,8 @@ const products = [
     name: "Espada Z",
     category: "Armas",
     price: 100.0,
-    image: "https://example.com/espada_z.jpg",
+    image:
+      "https://static.wikia.nocookie.net/dragonball/images/d/dc/GohanInKaiCostumeWithZSword.jpg/revision/latest/scale-to-width-down/480?cb=20210502222733&path-prefix=pt-br",
   },
   // Adicione mais itens de exemplo conforme necessário
 ];
@@ -44,7 +44,7 @@ export default function SearchAndResultsPage() {
     if (query.trim()) {
       const newUrl = `${window.location.pathname}?query=${encodeURIComponent(
         query
-      )}`;
+      )}&vegeta=maldito`;
       window.history.pushState({ path: newUrl }, "", newUrl);
       const filteredResults = products.filter((item) =>
         item.name.toLowerCase().includes(query.toLowerCase())
