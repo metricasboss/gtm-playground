@@ -51,6 +51,16 @@ export default function CombinedEcommercePage() {
   };
 
   const handleAddToCart = () => {
+    let dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: "add_to_cart",
+      item: {
+        id: "12345",
+        name: "Semente dos Deuses",
+        category: "Acessórios",
+        price: 50.0,
+      },
+    });
     setStep("cart");
   };
 

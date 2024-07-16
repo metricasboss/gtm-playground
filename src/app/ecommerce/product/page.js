@@ -32,16 +32,6 @@ export default function CombinedEcommercePage() {
         },
       });
     } else if (step === "cart") {
-      let dataLayer = window.dataLayer || [];
-      dataLayer.push({
-        event: "add_to_cart",
-        item: {
-          id: "12345",
-          name: "Semente dos Deuses",
-          category: "Acessórios",
-          price: 50.0,
-        },
-      });
     }
   }, [step]);
 
@@ -50,6 +40,17 @@ export default function CombinedEcommercePage() {
   };
 
   const handleAddToCart = () => {
+    console.log("asd");
+    let dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: "add_to_cart",
+      item: {
+        id: "12345",
+        name: "Semente dos Deuses",
+        category: "Acessórios",
+        price: 50.0,
+      },
+    });
     setStep("cart");
   };
 
