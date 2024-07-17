@@ -3,7 +3,7 @@ import "./globals.css";
 
 import { headers } from "next/headers";
 import Navbar from "@/components/Navbar";
-
+import InteractionMonitor from "@/components/InteractionMonitor";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,6 +17,7 @@ export default function RootLayout({ children, searchParams }) {
 
   return (
     <html lang="en">
+      <InteractionMonitor />
       <head>
         <script
           dangerouslySetInnerHTML={{

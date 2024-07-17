@@ -75,6 +75,14 @@ export default function Navbar() {
               {`Teste em pagina de pesquisa`}
             </Link>
           </li>
+          <li className={"group/ds "}>
+            <Link
+              className={`group/dh relative w-full font-semibold dark:text-gray-50 group-[.no-sections]:hidden  pr-1 cursor-pointer`}
+              href="/inp"
+            >
+              {`Testando evento para o INP`}
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
