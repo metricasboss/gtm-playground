@@ -4,6 +4,8 @@ import "./globals.css";
 import { headers } from "next/headers";
 import Navbar from "@/components/Navbar";
 import InteractionMonitor from "@/components/InteractionMonitor";
+import { usePathname } from "next/navigation";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,11 +16,30 @@ export const metadata = {
 
 export default function RootLayout({ children, searchParams }) {
   const gtmId = headers().get("X-Gtm-Id");
-
+  const pageCategory = headers().get("x-page-category");
+  const language = headers().get("x-user-language");
   return (
     <html lang="en">
       <InteractionMonitor />
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (!window.localStorage.getItem('uuid')) {
+                window.localStorage.setItem('uuid', '${Math.random()
+                  .toString(36)
+                  .substring(2)}');
+              }
+
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                'user_id': window.localStorage.getItem('uuid'),
+                'page_category': "${pageCategory}",
+                'language': "${language}",
+              });
+            `,
+          }}
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
